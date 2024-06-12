@@ -172,8 +172,34 @@ async function editUser(req, res) {
     }
 }
 
+// TODO: кешировать список на проде
 async function getUsers(req, res) {
     logger.debug('getUsers');
+
+    try {
+        const users = await User.findAll();
+        // конвертируем в объекты и форматируем
+        const usersFormatted = users.map(user => {
+            return {
+                id: user.id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email
+            }
+        });   
+
+        return res.json({
+            success: true,
+            users: usersFormatted
+        })
+    } catch (error) {
+        logger.error(error);
+
+        return res.status(500).json({
+            success: false,
+            error: 'Internal server error'
+        })
+    }
 }
 
 module.exports = {
