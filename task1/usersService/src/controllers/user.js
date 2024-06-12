@@ -72,6 +72,13 @@ async function createUser(req, res) {
             success: true
         });
     } catch (error) {
+        if(error.name === 'SequelizeUniqueConstraintError'){
+            return res.status(400).json({
+                success: false,
+                error: 'User with this email already exists'
+            });
+        }
+
         logger.error(error);
 
         return res.status(500).json({
