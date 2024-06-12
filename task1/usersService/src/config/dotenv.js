@@ -8,7 +8,7 @@ logger.level = 'warn';
 try {
     const dotenv = require('dotenv');
 
-    const envConfig = dotenv.parse(fs.readFileSync(path.join(__dirname, '../.env')));
+    const envConfig = dotenv.parse(fs.readFileSync(path.join(__dirname, '../../.env')));
     for (var k in envConfig) {
         process.env[k] = envConfig[k];
     }
