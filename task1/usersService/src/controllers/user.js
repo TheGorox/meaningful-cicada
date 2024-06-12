@@ -108,7 +108,7 @@ async function editUser(req, res) {
         });
     }
 
-    const uid = req.params.id;
+    const uid = +req.params.id;
     if(!validator.id(uid)){
         return res.status(400).json({
             success: false,
