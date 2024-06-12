@@ -5,8 +5,8 @@ const emailRegex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\
 // те пропы, у которых разнится значение
 function getChangedProps(obj1, obj2, propsToCheck){
     return propsToCheck.filter(key => {
-        if(obj1[key] === obj2[key]) return true;
-        return false;
+        if(obj1[key] === obj2[key]) return false;
+        return true;
     })
 }
 
