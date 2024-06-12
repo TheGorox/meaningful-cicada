@@ -1,8 +1,8 @@
 const sequelize = require('sequelize');
 
 const User = require('../models/user');
-const { emailRegex, getChangedProps } = require('../utils');
-const { pushHistory } = require('../historyApi');
+const { emailRegex, getChangedProps } = require('../helpers/utils');
+const { pushHistory } = require('../services/historyApi');
 
 const logger = require('log4js').getLogger('CTRL:USER');
 logger.level = 'debug';
@@ -17,7 +17,7 @@ const validator = {
         return surname && surname.length > 1 && surname.length < 25
     },
     email: (email) => {
-        return email.test(emailRegex);
+        return emailRegex.test(email);
     },
     // id должен быть десериализован до проверки
     id: (id) => {
