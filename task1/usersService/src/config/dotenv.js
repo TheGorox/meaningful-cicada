@@ -10,7 +10,7 @@ try {
 
     const envConfig = dotenv.parse(fs.readFileSync(path.join(__dirname, '../.env')));
     for (var k in envConfig) {
-        process.env[k] = envConfig[k]
+        process.env[k] = envConfig[k];
     }
 } catch (error) {
     logger.error(error);
