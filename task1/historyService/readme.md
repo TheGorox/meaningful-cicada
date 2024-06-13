@@ -16,12 +16,11 @@
 
 Висит 2 эндпоинта:  
 `/api/history/:id?offset=&limit=` для основного задания  
-
 <details>
 	<summary>Пример ответа: </summary>
   
-    `/api/history/:id?offset=0&limit=10`
-    ```
+    /api/history/:id?offset=0&limit=10
+	
     [{
         "uid": 1,
         "event": "edit",
@@ -37,17 +36,17 @@
         "eventData": null,
         "date": "2024-06-13T19:08:42.528Z"
     }]
-    ```
-    `/api/history/:id?offset=1&limit=10`
-    ```
+	
+    /api/history/:id?offset=1&limit=10
+	
     [{
         "uid": 1,
         "event": "create",
         "eventData": null,
         "date": "2024-06-13T19:08:42.528Z"
     }]
-    ```
 </details>
+<br>
 
 `/api/history/push` для связи с соседним сервисом  
 с body вида  
