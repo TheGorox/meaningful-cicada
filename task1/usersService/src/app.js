@@ -5,7 +5,7 @@ const express = require('express');
 const routes = require('./routes');
 const sequelize = require('./config/db');
 
-const logger = require('log4js').getLogger('MAIN');
+const logger = require('log4js').getLogger('APP');
 logger.level = 'info';
 
 const app = express();
