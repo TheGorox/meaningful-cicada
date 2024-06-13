@@ -4,7 +4,7 @@ const axios = require('axios');
 // CREATE|EDIT
 // eventData применим только для EDIT, в нём хранится массив изменённых пропов в виде key, oldValue, newValue
 async function pushHistory(event, userId, eventData){
-    const resp = await axios.post(`http://localhost:${process.env.HISTORY_PORT}/history`, {
+    const resp = await axios.post(`http://localhost:${process.env.HISTORY_PORT}/api/history/push`, {
         event,
         userId,
         eventData
