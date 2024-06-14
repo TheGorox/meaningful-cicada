@@ -14,6 +14,8 @@ export class UsersService {
         // сырым query вида 
         // with xxx as ( update ... returning 1 ) select count(*) ...
         // но это не sequelize путь
+        // upd: он выполняется с той же скоростью, даже чуть медленнее
+        
         const count = await this.userModel.count({
             where: { problems: true }
         });
@@ -23,6 +25,6 @@ export class UsersService {
             where: { problems: true }
         });
 
-        return count
+        return count;
     }
 }
